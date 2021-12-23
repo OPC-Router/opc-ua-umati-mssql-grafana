@@ -14,7 +14,7 @@ USER_GROUP="$USER"
 
 GIT_TOKEN="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"
 
-TARGET_DIR="opcrouter-umati-opc-ua-mssql-grafana"
+TARGET_DIR="OPCRouter_Umati_MSSQL_Grafana"
 
 get_platform_params() {
 	# Test which platform this script is being run on
