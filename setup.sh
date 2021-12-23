@@ -127,5 +127,10 @@ docker-compose up -d
 # Detect IP address
 IP=$(detect_ip_address)
 echo "Sample was installed successfully! Open http://$IP:3000 in a browser!"
-xdg-open http://$IP:3000
+
+#check if xdg-open is installed to launch the default brwoser
+if [[ $(which "xdg-open" 2>/dev/null) == *"/xdg-open" ]]; then
+	xdg-open http://$IP:3000
+fi
+
 exit 0
