@@ -121,6 +121,7 @@ fi
 #download required files
 git clone https://$GIT_TOKEN@github.com/OPC-Router/opc-ua-umati-mssql-grafana $TARGET_DIR
 cd $TARGET_DIR
+sleep 1s
 docker-compose up -d
 
 # Detect IP address
