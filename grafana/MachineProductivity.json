@@ -21,8 +21,21 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 3,
-  "links": [],
+  "id": 1,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Get OPC Router 4 management",
+      "tooltip": "Download now",
+      "type": "link",
+      "url": "https://www.opc-router.com/#test-now"
+    }
+  ],
   "liveNow": false,
   "panels": [
     {
@@ -125,6 +138,6 @@
   "timezone": "",
   "title": "Umati machine data",
   "uid": "v972rfT7k",
-  "version": 1,
+  "version": 3,
   "weekStart": ""
 }
