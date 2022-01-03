@@ -1,4 +1,5 @@
-# OPC Router Docker Sample for a Umati MSSQL communication with Grafana Dashboard.
+OPC Router Docker Sample
+> OPC Router Docker Sample for a Umati MSSQL communication with Grafana Dashboard.
 
 ## Contents
 * [General Info](#general-information)
@@ -10,6 +11,7 @@
 ## General Information
 - This docker sample is a fully functional OPC Router 4 project sample.
 - The goal is to use an Umati OPC UA server, with the help of the OPC Router 4, to store data in an MSSQL database and visualize it through Grafana.
+![First Startup](./img/Umati-DataDockerSample.png)
 
 ## Components
 - [OPC Router](https://www.opc-router.com)
@@ -21,8 +23,15 @@
 A system with Docker and OPC Router Management installed is a prerequisite for the project. This same system is required to have internet access.
 If you don't have Docker installed yet, you can download it [here](https://www.docker.com/get-started). The OPC Router Management can be found on our [website](https://www.opc-router.com/#test-now).
 
-After the OPC Router Management and Docker are installed download the repository and put it onto the docker system. Open up a commandline and navigate to the downloaded directory. 
-Run 'docker-compose up -d' and observe docker downloading te necessary data and launching the containers. This process may take up to a couple of minutes.
+After the OPC Router Management and Docker are installed open up a commandline and enter the following:
+
+Windows:
+'$(Invoke-WebRequest https://raw.githubusercontent.com/OPC-Router/opc-ua-umati-mssql-grafana/main/setup.sh -Headers @{'Authorization' = 'token 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'; 'Accept' = 'application/vnd.github.v3.raw'}).Content | bash -'
+
+Linux:
+'curl -sSLf https://raw.githubusercontent.com/OPC-Router/opc-ua-umati-mssql-grafana/main/setup.sh -H 'Authorization: token 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' -H 'Accept: application/vnd.github.v3.raw' | bash -'
+
+This process may take up to a couple of minutes.
 
 Now all nessecery components are ready to use.
 
@@ -31,12 +40,13 @@ Now you can navigate to [http://localhost:3000/](http://localhost:3000/d/v972rfT
 If you like to inspect the communication of the OPC Router 4 instance you may launch the OPC Router Management.
 
 After the start of the Management it is required to configure a connection to the docker container. 
-//here a picture
+![First Startup](./img/OPCRouterConfigureService.png)
 To do this you have to click on the plus symbol at plug-ins in the OPC Router Management (see picture) and select "Integrade existing service...".
-//here a picture
+![First Startup](./img/OPCRouterConfigIntegrateExistingService.png)
 Enter your docker hosts IP address and Port 27020, click "Test connection" and confirm with OK.
-// picture
+![First Startup](./img/AddDocker.png)
 To observe the current and historical state select this pane and for example select the connection transferring the visualized data.
+![First Startup](./img/UmatiDockerSampleOPCRouter.png)
 
 ## Contact
 Created by [@inray](https://www.opc-router.com/) - feel free to contact us!
