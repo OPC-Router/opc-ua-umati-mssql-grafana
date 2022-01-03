@@ -41,13 +41,19 @@ Now you can navigate to [http://localhost:3000/](http://localhost:3000/d/v972rfT
 If you like to inspect the communication of the OPC Router 4 instance you may launch the OPC Router Management.
 
 After the start of the Management it is required to configure a connection to the docker container. 
+
 ![First Startup](./img/OPCRouterConfigureService.png)
+
 To do this you have to click on the plus symbol at plug-ins in the OPC Router Management (see picture) and select "Integrade existing service...".
+
 ![First Startup](./img/OPCRouterConfigIntegrateExistingService.png)
+
 Enter your docker hosts IP address and Port 27020, click "Test connection" and confirm with OK.
+
 ![First Startup](./img/AddDocker.png)
 
 To observe the current and historical state select this pane and for example select the connection transferring the visualized data.
+
 ![First Startup](./img/UmatiDockerSampleOPCRouter.png)
 
 ## Contact
