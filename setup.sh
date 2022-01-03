@@ -12,7 +12,7 @@ else IS_ROOT=false; SUDOX="sudo "; fi
 ROOT_GROUP="root"
 USER_GROUP="$USER"
 
-GIT_TOKEN="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"
+GIT_TOKEN="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"
 
 TARGET_DIR="OPCRouter_Umati_MSSQL_Grafana"
 
