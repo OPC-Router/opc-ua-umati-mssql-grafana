@@ -1,11 +1,8 @@
-GIT_TOKEN="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"
-TARGET_DIR="OPCRouter_Umati_MSSQL_Grafana"
-
-$DockerInstaller = Join-Path $Env:Temp InstallDocker.msi
-Invoke-WebRequest https://download.docker.com/win/stable/InstallDocker.msi -OutFile $DockerInstaller
+$GIT_TOKEN="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"
+$TARGET_DIR="OPCRouter_Umati_MSSQL_Grafana"
 
 
-$env:HostIP = (
+$HostIP = (
     Get-NetIPConfiguration |
     Where-Object {
         $_.IPv4DefaultGateway -ne $null -and
@@ -18,6 +15,8 @@ echo "docker is missing and required for using the sample. Install docker now? (
 while(-1){
         switch (Read-Host '(Y/N)'){
             Y { 
+				$DockerInstaller = Join-Path $Env:Temp InstallDocker.msi
+				Invoke-WebRequest https://download.docker.com/win/stable/InstallDocker.msi -OutFile $DockerInstaller
                 msiexec -i $DockerInstaller -quiet
                 return 
               }
@@ -28,7 +27,7 @@ while(-1){
 }
 
 echo ""
-echo "Welcome to the OPC Router 4 docker sample with Umati OPC UA, MSSQL and Grafana! You might need to enter your password a couple of times."
+echo "Welcome to the OPC Router 4 docker sample with Umati OPC UA, MSSQL and Grafana!"
 echo ""
 
 Try {
@@ -45,8 +44,10 @@ Catch
 
 git clone https://$GIT_TOKEN@github.com/OPC-Router/opc-ua-umati-mssql-grafana $TARGET_DIR
 cd $TARGET_DIR
-sleep 1s
+sleep 10
 docker-compose up -d
 
-echo "Sample was installed successfully! Open http://$HostIP:3000 in a browser!"
-Start-Process "http://$HostIP:3000"
+$HostAdress = "http://" + $HostIP + ":3000/d/v972rfT7k/umati-machine-data";
+sleep 10
+Write-Host "Sample was installed successfully! Open" $HostAdress "in a browser!"
+Start-Process $HostAdress
