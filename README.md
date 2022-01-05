@@ -30,7 +30,7 @@ After the OPC Router Management and Docker are installed open up a commandline a
 '$(Invoke-WebRequest https://raw.githubusercontent.com/OPC-Router/opc-ua-umati-mssql-grafana/main/setup.ps1 -Headers @{'Authorization' = 'token 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'} -UseBasicParsing).Content | powershell'
 
 **Linux**:
-'curl -sSLf https://raw.githubusercontent.com/OPC-Router/opc-ua-umati-mssql-grafana/main/setup.sh -H 'Authorization: token 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' -H 'Accept: application/vnd.github.v3.raw' | bash -'
+'curl -sSLf https://raw.githubusercontent.com/OPC-Router/opc-ua-umati-mssql-grafana/main/setup.sh -H 'Authorization: token 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' | bash -'
 
 This process may take up to a couple of minutes.
 
