@@ -38,7 +38,6 @@ function install_docker {
 echo ""
 echo "Welcome to the OPC Router 4 docker sample with Umati OPC UA, MSSQL and Grafana!"
 echo ""
-install_docker
 
 Try {
 	$test = docker --version
