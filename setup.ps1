@@ -12,17 +12,19 @@ $HostIP = (
 ).IPv4Address.IPAddress
 
 function install_docker {
-$confirmation = Read-Host "docker is missing and required for using the sample. Install docker now? (y/n)"
-while($confirmation -ne "y"){
+	$confirmation = Read-Host "docker is missing and required for using the sample. Install docker now? (y/n)"
+	while($confirmation -ne "y")
+	{
         if ($confirmation -eq 'n') {exit}
+		
 		$confirmation = Read-Host "docker is missing and required for using the sample. Install docker now? (y/n)"
     }
 	switch ($WindowsVersion){
 		WorkStation 
 		{
-			Invoke-WebRequest -Uri "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header" -OutFile $DockerInstaller
+			Invoke-WebRequest -Uri "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe" -OutFile $DockerInstaller
 			& "./Docker Desktop Installer.exe" install --quiet | Out-Null
-			Write-Host "Docker Installation completed"
+			Remove-Item -Path $DockerInstaller -Force
 		}
 		Server 
 		{
@@ -30,6 +32,7 @@ while($confirmation -ne "y"){
 			Install-Package -Name docker -ProviderName DockerMsftProvider
 		}
 	}
+	Write-Host "Docker Installation completed"
 }
 
 echo ""
