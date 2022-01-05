@@ -27,7 +27,7 @@ If you don't have Docker installed yet, you can download it [here](https://www.d
 After the OPC Router Management and Docker are installed open up a commandline and enter the following:
 
 **Windows**:
-'$(Invoke-WebRequest https://raw.githubusercontent.com/OPC-Router/opc-ua-umati-mssql-grafana/main/setup.sh -Headers @{'Authorization' = 'token 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'; 'Accept' = 'application/vnd.github.v3.raw'}).Content | bash -'
+'$(Invoke-WebRequest https://raw.githubusercontent.com/OPC-Router/opc-ua-umati-mssql-grafana/main/setup.ps1 -Headers @{'Authorization' = 'token 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'} -UseBasicParsing).Content | powershell'
 
 **Linux**:
 'curl -sSLf https://raw.githubusercontent.com/OPC-Router/opc-ua-umati-mssql-grafana/main/setup.sh -H 'Authorization: token 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' -H 'Accept: application/vnd.github.v3.raw' | bash -'
