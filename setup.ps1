@@ -38,7 +38,9 @@ Catch
 	install_docker
 }
 
-git clone https://$GIT_TOKEN@github.com/OPC-Router/opc-ua-umati-mssql-grafana $TARGET_DIR
+Invoke-WebRequest -Uri "https://github.com/OPC-Router/opc-ua-umati-mssql-grafana/archive/refs/heads/main.zip" -OutFile $TARGET_DIR
+$ExtractShell = New-Object -ComObject Shell.Application
+$ExtractFiles = $ExtractShell.Namespace($TARGET_DIR).Items()
 cd $TARGET_DIR
 sleep 10
 docker-compose up -d
