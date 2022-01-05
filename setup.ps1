@@ -12,8 +12,8 @@ $HostIP = (
 
 function install_docker {
 echo "docker is missing and required for using the sample. Install docker now? (Y/N)"
-while(-1){
-        switch (Read-Host '(Y/N)'){
+while(1){
+        switch (Read-Host){
             Y { 
 				$DockerInstaller = Join-Path $Env:Temp InstallDocker.msi
 				Invoke-WebRequest https://download.docker.com/win/stable/InstallDocker.msi -OutFile $DockerInstaller
