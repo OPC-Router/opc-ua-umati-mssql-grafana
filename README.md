@@ -15,14 +15,14 @@
 ![First Startup](./img/Umati-DataDockerSample.png)
 
 ## Components
-- [OPC Router](https://www.opc-router.com)
+- [OPC Router](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now)
 - [Docker](https://www.docker.com/)
 - [Umati OPC UA Server](https://umati.org/)
 - [Grafana](https://grafana.com/)
 
 ## Requirements
 A system with Docker and OPC Router Management installed is a prerequisite for the project. This same system is required to have internet access.
-If you don't have Docker installed yet, you can download it [here](https://www.docker.com/get-started). The OPC Router Management can be found on our [website](https://www.opc-router.com/#test-now).
+If you don't have Docker installed yet, you can download it [here](https://www.docker.com/get-started). The OPC Router Management can be found on our [website](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now).
 
 After the OPC Router Management and Docker are installed open up a commandline and enter the following:
 
@@ -57,4 +57,4 @@ To observe the current and historical state select this pane and for example sel
 ![First Startup](./img/UmatiDockerSampleOPCRouter.png)
 
 ## Contact
-Created by [@inray](https://www.opc-router.com/) - feel free to contact us!
+Created by [@inray](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now) - feel free to contact us!

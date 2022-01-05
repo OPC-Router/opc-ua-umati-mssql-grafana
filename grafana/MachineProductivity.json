@@ -33,7 +33,7 @@
       "title": "Get OPC Router 4 management",
       "tooltip": "Download now",
       "type": "link",
-      "url": "https://www.opc-router.com/#test-now"
+      "url": "https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now"
     }
   ],
   "liveNow": false,
