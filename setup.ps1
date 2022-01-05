@@ -55,6 +55,7 @@ Invoke-WebRequest -Uri $GITHUB_ADRESS -OutFile "OPCRouter_Umati_MSSQL_Grafana.zi
 Expand-Archive -Path "OPCRouter_Umati_MSSQL_Grafana.zip" -DestinationPath $TARGET_DIR -Force
 Remove-Item -Path "OPCRouter_Umati_MSSQL_Grafana.zip" -Force
 cd $TARGET_DIR
+cd opc-ua-umati-mssql-grafana-main
 sleep 10
 docker-compose up -d
 
