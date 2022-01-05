@@ -1,6 +1,7 @@
 $GIT_TOKEN="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"
 $TARGET_DIR="OPCRouter_Umati_MSSQL_Grafana"
-
+$DockerInstaller="Docker Desktop Installer.exe"
+$WindowsVersion=(Get-ComputerInfo).OsProductType
 
 $HostIP = (
     Get-NetIPConfiguration |
@@ -16,10 +17,18 @@ while($confirmation -ne "y"){
         if ($confirmation -eq 'n') {exit}
 		$confirmation = Read-Host "docker is missing and required for using the sample. Install docker now? (y/n)"
     }
-$DockerInstaller = Join-Path $Env:Temp InstallDocker.msi
-				Invoke-WebRequest https://download.docker.com/win/stable/InstallDocker.msi -OutFile $DockerInstaller
-                msiexec -i $DockerInstaller -quiet
-                return 
+	switch ($WindowsVersion){
+		WorkStation 
+		{
+			Invoke-WebRequest -Uri "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header" -OutFile $DockerInstaller
+			"Docker Desktop Installer.exe" install --quiet
+		}
+		Server 
+		{
+			Install-Module -Name DockerMsftProvider -Repository PSGal
+			Install-Package -Name docker -ProviderName DockerMsftProvider
+		}
+	}
 }
 
 echo ""
