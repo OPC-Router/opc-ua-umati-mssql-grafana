@@ -37,8 +37,8 @@ Catch
 {
 	install_docker
 }
-
-Invoke-WebRequest -Uri "https://"$GIT_TOKEN"@github.com/OPC-Router/opc-ua-umati-mssql-grafana/archive/refs/heads/main.zip" -OutFile $TARGET_DIR
+$GITHUB_ADRESS = "https://" + $GIT_TOKEN + "@github.com/OPC-Router/opc-ua-umati-mssql-grafana/archive/refs/heads/main.zip"
+Invoke-WebRequest -Uri $GITHUB_ADRESS -OutFile $TARGET_DIR
 $ExtractShell = New-Object -ComObject Shell.Application
 $ExtractFiles = $ExtractShell.Namespace($TARGET_DIR).Items()
 cd $TARGET_DIR
