@@ -11,19 +11,15 @@ $HostIP = (
 ).IPv4Address.IPAddress
 
 function install_docker {
-echo "docker is missing and required for using the sample. Install docker now? (Y/N)"
-while(1){
-        switch (Read-Host){
-            Y { 
-				$DockerInstaller = Join-Path $Env:Temp InstallDocker.msi
+$confirmation = Read-Host "docker is missing and required for using the sample. Install docker now? (y/n)"
+while($confirmation -ne "y"){
+        if ($confirmation -eq 'n') {exit}
+		$confirmation = Read-Host "docker is missing and required for using the sample. Install docker now? (y/n)"
+    }
+$DockerInstaller = Join-Path $Env:Temp InstallDocker.msi
 				Invoke-WebRequest https://download.docker.com/win/stable/InstallDocker.msi -OutFile $DockerInstaller
                 msiexec -i $DockerInstaller -quiet
                 return 
-              }
-            N { exit }
-            default { Write-Host 'Only Y/N valid' -fore red }
-        }
-    }
 }
 
 echo ""
