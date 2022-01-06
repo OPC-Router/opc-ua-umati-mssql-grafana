@@ -1,5 +1,5 @@
 #!/bin/bash
-#sleep 10
+sleep 5
 /opt/mssql-tools/bin/sqlcmd -S $MSSQL_HOST -U $MSSQL_USERNAME -P $MSSQL_PASSWORD -Q "use master
 GO
 
