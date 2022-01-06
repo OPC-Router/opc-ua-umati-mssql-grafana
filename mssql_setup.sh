@@ -1,5 +1,12 @@
 #!/bin/bash
-sleep 5
+RESULT=1
+while [[ RESULT -ne 0 ]]
+do
+	/opt/mssql-tools/bin/sqlcmd -S $MSSQL_HOST -U $MSSQL_USERNAME -P $MSSQL_PASSWORD -b -Q "SELECT 1 AS connected" 2>/dev/null
+	RESULT=$?
+	echo "waiting for database"
+done
+
 /opt/mssql-tools/bin/sqlcmd -S $MSSQL_HOST -U $MSSQL_USERNAME -P $MSSQL_PASSWORD -Q "use master
 GO
 
