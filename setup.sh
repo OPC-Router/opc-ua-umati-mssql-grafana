@@ -128,10 +128,10 @@ else
 fi
 
 #download required files
-if [[ $(which "git" 2>/dev/null == *"/git" ]]; then
+if [[ $(which "git" 2>/dev/null) == *"/git" ]]; then
 	git clone $GITHUB_REPO_ADRESS $TARGET_DIR
 	mv $GITHUB_REPO $TARGET_DIR
-elif [[ $(which "tar" 2>/dev/null == *"/tar" ]]; then
+elif [[ $(which "tar" 2>/dev/null) == *"/tar" ]]; then
 	if [[ $(which "curl" 2>/dev/null) == *"/curl" ]]; then
 		curl -H "Authorization: token $GIT_TOKEN" -fsSL $GITHUB_TARBALL_ADRESS > $TARGETDIR.tar.gz
 		unpack_archive
