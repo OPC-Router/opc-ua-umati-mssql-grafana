@@ -104,6 +104,7 @@ unpack_archive() {
 		rm -rf "$TARGET_DIR/OPC-Router-$GITHUB_REPO-*/"
 	else
 		#TODO install tar?
+		echo "unable to unpack tarball"
 	fi
 }
 
