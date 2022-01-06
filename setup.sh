@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
+GIT_TOKEN="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"
+GITHUB_REPO="opc-ua-umati-mssql-grafana"
 
-# to run from local file system in Powershell use "Get-Content .\setup.sh -Raw | bash -"
-
-# Increase this version number whenever you update the installer
-INSTALLER_VERSION="2021-11-18" # format YYYY-MM-DD
+# don't edit this
+TARGET_DIR="OPCRouter_${GITHUB_REPO//-/_}"
+GITHUB_DIR="$GITHUB_REPO-main"
+GITHUB_REPO_ADRESS="https://$GIT_TOKEN@github.com/OPC-Router/$GITHUB_REPO/" #GITHUB_REPO_ADRESS="https://github.com/OPC-Router/$GITHUB_REPO/"
+GITHUB_TARBALL_ADRESS="https://api.github.com/repos/OPC-Router/$GITHUB_REPO/tarball"
 
 # Test if this script is being run as root or not
 if [[ $EUID -eq 0 ]];
@@ -12,9 +15,6 @@ else IS_ROOT=false; SUDOX="sudo "; fi
 ROOT_GROUP="root"
 USER_GROUP="$USER"
 
-GIT_TOKEN="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"
-
-TARGET_DIR="OPCRouter_Umati_MSSQL_Grafana"
 
 get_platform_params() {
 	# Test which platform this script is being run on
@@ -62,21 +62,12 @@ get_platform_params() {
 	esac
 }
 
-running_in_docker() {
-	# Test if we're running inside a docker container or as github actions job while building docker container image
-	if awk -F/ '$2 == "docker"' /proc/self/cgroup | read || awk -F/ '$2 == "actions_job"' /proc/self/cgroup | read ; then
-		return 0
-	else
-		return 1
-	fi
-}
-
 install_docker() {
 	echo "docker is missing and required for using the sample."
 	read -r -p "Install docker now? [y/N] " response
 	echo "$response"
 	case "$response" in
-		[yY][eE][sS]|[yY] ) $($DOCKER_INSTALL_COMMAND); break;;
+		[yY][eE][sS]|[yY] ) get_and_run_docker_installer;;
 		*) exit 1;;
 	esac
 }
@@ -87,6 +78,7 @@ get_and_run_docker_installer() {
 	elif [[ $(which "wget" 2>/dev/null) == *"/wget" ]]; then
 		wget -O - https://get.docker.com | bash -
 	else
+		#TODO install curl?
 		echo "Unable to automatically install docker runtime. Visit https://docs.docker.com/engine/install/ to see how you may install it yourself."
 		echo "Please run the previously entered command again once you installed docker."
 		exit 1
@@ -103,6 +95,16 @@ detect_ip_address() {
 		IP=$($IP_COMMAND | grep inet | grep -v inet6 | grep -v 127.0.0.1 | grep -Eo "([0-9]+\.){3}[0-9]+\/[0-9]+" | cut -d "/" -f1)
 	fi
 	echo $IP
+}
+
+unpack_archive() {
+	if [[ $(which "tar" 2>/dev/null) == *"/tar" ]]; then
+		tar -zxf $TARGETDIR.tar.gz -C $TARGET_DIR
+		mv "$TARGET_DIR/OPC-Router-$GITHUB_REPO-*/* $TARGET_DIR"
+		rm -rf "$TARGET_DIR/OPC-Router-$GITHUB_REPO-*/"
+	else
+		#TODO install tar?
+	fi
 }
 
 get_platform_params
@@ -125,7 +127,24 @@ else
 fi
 
 #download required files
-git clone https://$GIT_TOKEN@github.com/OPC-Router/opc-ua-umati-mssql-grafana $TARGET_DIR
+if [[ $(which "git" 2>/dev/null == *"/git" ]]; then
+	git clone $GITHUB_REPO_ADRESS $TARGET_DIR
+	mv $GITHUB_REPO $TARGET_DIR
+elif [[ $(which "tar" 2>/dev/null == *"/tar" ]]; then
+	if [[ $(which "curl" 2>/dev/null) == *"/curl" ]]; then
+		curl -H "Authorization: token $GIT_TOKEN" -fsSL $GITHUB_TARBALL_ADRESS > $TARGETDIR.tar.gz
+		unpack_archive
+	elif [[ $(which "wget" 2>/dev/null) == *"/wget" ]]; then
+		wget --header="Authorization: token $GIT_TOKEN" -O - $GITHUB_TARBALL_ADRESS > $TARGETDIR.tar.gz
+		unpack_archive
+	else
+		echo "Unable to do things" #TODO install some components?
+		exit 1
+	fi
+else
+	echo "Unable to do things" #TODO install some components?
+fi
+
 cd $TARGET_DIR
 sleep 1s
 docker-compose up -d
