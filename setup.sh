@@ -78,13 +78,11 @@ running_in_docker() {
 }
 
 install_docker() {
-	echo "docker is missing and required for using the sample. Install docker now?"
-	select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) $($DOCKER_INSTALL_COMMAND); break;;
-        No ) exit 1;;
-    esac
-done
+	read -r -p "docker is missing and required for using the sample. Install docker now? [y/N] " response
+	case "$response" in
+		[yY][eE][sS]|[yY] ) $($DOCKER_INSTALL_COMMAND); break;;
+		*) exit 1;;
+	esac
 }
 
 detect_ip_address() {
