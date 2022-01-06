@@ -150,9 +150,6 @@ get_and_run_docker_installer() {
 		echo "Please run the previously entered command again once you installed docker."
 		exit 1
 	fi
-	if [[ $(which "docker-compose" 2>/dev/null) != *"/docker-desktop" ]]; then
-		install_package "docker-compose"
-	fi
 }
 
 detect_ip_address() {
@@ -196,11 +193,15 @@ if [[ $(which "docker" 2>/dev/null) != *"/docker" ]]; then
 else
 	echo docker is already installed
 fi
+if [[ $(which "docker-compose" 2>/dev/null) != *"/docker-desktop" ]]; then
+	install_package "docker-compose"
+else
+	echo docker-compose is already installed
+fi
 
 #download required files
 if [[ $(which "git" 2>/dev/null) == *"/git" ]]; then
 	git clone $GITHUB_REPO_ADRESS $TARGET_DIR
-	mv $GITHUB_REPO $TARGET_DIR
 elif [[ $(which "tar" 2>/dev/null) == *"/tar" ]]; then
 	if [[ $(which "curl" 2>/dev/null) == *"/curl" ]]; then
 		curl -H "Authorization: token $GIT_TOKEN" -fsSL $GITHUB_TARBALL_ADRESS > $TARGETDIR.tar.gz
