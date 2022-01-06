@@ -33,7 +33,7 @@ $(Invoke-WebRequest https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/w
 
 **Linux**:
 ````bash
-curl -sSLf https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linux | bash -
+bash <(curl -sSLf https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linux)
 ````
 
 This process may take up to a couple of minutes.
