@@ -60,12 +60,6 @@ get_platform_params() {
 		exit 1
 		;;
 	esac
-	
-	if [[ $(which "curl" 2>/dev/null) == *"/curl" ]]; then
-		DOCKER_INSTALL_COMMAND="curl -fsSL https://get.docker.com | sh -"
-	elif [[ $(which "wget" 2>/dev/null) == *"/wget" ]]; then
-		DOCKER_INSTALL_COMMAND="wget -O - https://get.docker.com | sh -"
-	fi
 }
 
 running_in_docker() {
@@ -85,6 +79,18 @@ install_docker() {
 		[yY][eE][sS]|[yY] ) $($DOCKER_INSTALL_COMMAND); break;;
 		*) exit 1;;
 	esac
+}
+
+get_and_run_docker_installer() {
+	if [[ $(which "curl" 2>/dev/null) == *"/curl" ]]; then
+		curl -fsSL https://get.docker.com | bash -
+	elif [[ $(which "wget" 2>/dev/null) == *"/wget" ]]; then
+		wget -O - https://get.docker.com | bash -
+	else
+		echo "Unable to automatically install docker runtime. Visit https://docs.docker.com/engine/install/ to see how you may install it yourself."
+		echo "Please run the previously entered command again once you installed docker."
+		exit 1
+	fi
 }
 
 detect_ip_address() {
