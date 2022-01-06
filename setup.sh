@@ -217,9 +217,13 @@ else
 	echo "Unable to do things" #TODO install some components?
 fi
 
+#ensure docker daemon is running
+$($SUDOX systemctl start docker.service)
+$($SUDOX systemctl enable containerd.service)
+
 cd $TARGET_DIR
 sleep 1s
-docker-compose up -d
+$($SUDOX docker-compose up -d)
 
 # Detect IP address
 IP=$(detect_ip_address)
