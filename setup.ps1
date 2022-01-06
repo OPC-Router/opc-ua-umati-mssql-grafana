@@ -33,17 +33,17 @@ Catch
 		WorkStation 
 		{
 			Write-Host "Docker Installation Windows 10/11 Guide: https://docs.docker.com/desktop/windows/install/"
-			Start-Process "https://docs.docker.com/desktop/windows/install/"
 			Write-Host "When you are done installing Docker you can repeat the process."
 			sleep 5
+			Start-Process "https://docs.docker.com/desktop/windows/install/"
 			exit
 		}
 		Server 
 		{
 			Write-Host "Docker Installation Windows Server Guide: https://docs.microsoft.com/de-de/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-Server"
-			Start-Process "https://docs.microsoft.com/de-de/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-Server"
 			Write-Host "When you are done installing Docker you can repeat the process."
 			sleep 5
+			Start-Process "https://docs.microsoft.com/de-de/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-Server"
 			exit
 		}
 	}
