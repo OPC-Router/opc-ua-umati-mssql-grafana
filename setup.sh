@@ -79,6 +79,7 @@ running_in_docker() {
 
 install_docker() {
 	read -r -p "docker is missing and required for using the sample. Install docker now? [y/N] " response
+	echo "$response"
 	case "$response" in
 		[yY][eE][sS]|[yY] ) $($DOCKER_INSTALL_COMMAND); break;;
 		*) exit 1;;
