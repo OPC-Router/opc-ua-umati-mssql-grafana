@@ -62,6 +62,73 @@ get_platform_params() {
 	esac
 }
 
+
+install_package_linux() {
+	package="$1"
+	# Test if the package is installed
+	dpkg -s "$package" &> /dev/null
+	if [ $? -ne 0 ]; then
+		if [ "$INSTALL_CMD" = "yum" ]; then
+			# Install it
+			errormessage=$( $SUDOX $INSTALL_CMD $INSTALL_CMD_ARGS $package > /dev/null 2>&1)
+		else
+			# Install it
+			errormessage=$( $SUDOX $INSTALL_CMD $INSTALL_CMD_ARGS --no-install-recommends $package > /dev/null 2>&1)
+		fi
+
+		# Hide "Error: Nothing to do"
+		if [ "$errormessage" != "Error: Nothing to do" ]; then
+			if [ "$errormessage" != "" ]; then
+				echo $errormessage
+			fi
+			echo "Installed $package"
+		fi
+	fi
+}
+
+install_package_freebsd() {
+	package="$1"
+	# check if package is installed (pkg is nice enough to provide us with a exitcode)
+	if ! $INSTALL_CMD info "$1" >/dev/null 2>&1; then
+		# Install it
+		$SUDOX $INSTALL_CMD $INSTALL_CMD_ARGS "$1" > /dev/null
+		echo "Installed $package"
+	fi
+}
+
+install_package_macos() {
+	package="$1"
+	# Test if the package is installed (Use brew to install essential tools)
+	$INSTALL_CMD list | grep "$package" &> /dev/null
+	if [ $? -ne 0 ]; then
+		# Install it
+		$INSTALL_CMD $INSTALL_CMD_ARGS $package &> /dev/null
+		if [ $? -eq 0 ]; then
+			echo "Installed $package"
+		else
+			echo "$package was not installed"
+		fi
+	fi
+}
+
+install_package() {
+	case "$HOST_PLATFORM" in
+		"linux")
+			install_package_linux $1
+		;;
+		"osx")
+			install_package_macos $1
+		;;
+		"freebsd")
+			install_package_freebsd $1
+		;;
+		# The following should never happen, but better be safe than sorry
+		*)
+			echo "Unsupported platform $HOST_PLATFORM"
+		;;
+	esac
+}
+
 install_docker() {
 	echo "docker is missing and required for using the sample."
 	read -r -p "Install docker now? [y/N] " response
@@ -82,6 +149,9 @@ get_and_run_docker_installer() {
 		echo "Unable to automatically install docker runtime. Visit https://docs.docker.com/engine/install/ to see how you may install it yourself."
 		echo "Please run the previously entered command again once you installed docker."
 		exit 1
+	fi
+	if [[ $(which "docker-compose" 2>/dev/null) != *"/docker-desktop" ]]; then
+		install_package "docker-compose"
 	fi
 }
 
