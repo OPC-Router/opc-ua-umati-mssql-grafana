@@ -4,7 +4,7 @@ $DockerInstaller="Docker Desktop Installer.exe"
 $WindowsVersion=(Get-ComputerInfo).OsProductType
 $GITHUB_ADRESS = "https://github.com/OPC-Router/opc-ua-umati-mssql-grafana/archive/refs/heads/main.zip"
 $GITHUB_FILENAME = "OPCRouter_Umati_MSSQL_Grafana.zip"
-$GITHUB_DIR = opc-ua-umati-mssql-grafana-main
+$GITHUB_DIR = "opc-ua-umati-mssql-grafana-main"
 
 $HostIP = (
     Get-NetIPConfiguration |
@@ -34,7 +34,7 @@ Catch
 		{
 			Write-Host "Docker Installation Windows 10/11 Guide: https://docs.docker.com/desktop/windows/install/"
 			Write-Host "When you are done installing Docker you can repeat the process."
-			sleep 5
+			sleep 10
 			Start-Process "https://docs.docker.com/desktop/windows/install/"
 			exit
 		}
@@ -42,7 +42,7 @@ Catch
 		{
 			Write-Host "Docker Installation Windows Server Guide: https://docs.microsoft.com/de-de/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-Server"
 			Write-Host "When you are done installing Docker you can repeat the process."
-			sleep 5
+			sleep 10
 			Start-Process "https://docs.microsoft.com/de-de/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-Server"
 			exit
 		}
