@@ -237,11 +237,11 @@ do
 		GRAF_REACHABLE=$?
 	fi
 done
-echo "Sample was installed successfully! Open http://$IP:3000 in a browser!"
+echo "Sample was installed successfully! Open http://$IP:3000/d/v972rfT7k/umati-machine-data in a browser!"
 
 #check if xdg-open is installed to launch the default brwoser
 if [[ $(which "xdg-open" 2>/dev/null) == *"/xdg-open" ]]; then
-	xdg-open http://$IP:3000
+	xdg-open http://$IP:3000/d/v972rfT7k/umati-machine-data
 fi
 
 exit 0
