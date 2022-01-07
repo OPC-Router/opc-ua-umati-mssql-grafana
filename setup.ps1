@@ -78,7 +78,7 @@ docker-compose up -d
 $HostAdress = "http://" + $HostIP + ":3000/d/v972rfT7k/umati-machine-data";
 Write-Host "Waiting for final steps to complete"
 $GRAFANA_REACHABLE=999
-while ($GRAFANA_REACHABLE != 200) 
+while ($GRAFANA_REACHABLE <> 200) 
 {
 	$GRAFANA_REACHABLE = Get-UrlStatusCode "localhost:3000"
 	sleep 3
