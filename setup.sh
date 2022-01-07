@@ -226,7 +226,7 @@ $($SUDOX docker-compose up -d)
 # Detect IP address
 IP=$(detect_ip_address)
 echo "Waiting for final steps to complete"
-GRAF_REACHABLE = 1
+GRAF_REACHABLE=1
 while [[ GRAF_REACHABLE -ne 0 ]]
 do
 	if [[ $(which "curl" 2>/dev/null) == *"/curl" ]]; then
