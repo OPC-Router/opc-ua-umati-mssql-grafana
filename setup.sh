@@ -165,7 +165,7 @@ detect_ip_address() {
 unpack_archive() {
 	if [[ $(which "tar" 2>/dev/null) == *"/tar" ]]; then
 		tar -zxf $TARGETDIR.tar.gz -C $TARGET_DIR
-		mv "$TARGET_DIR/OPC-Router-$GITHUB_REPO-*/* $TARGET_DIR"
+		mv "$TARGET_DIR/OPC-Router-$GITHUB_REPO-*/*" "$TARGET_DIR"
 		rm -rf "$TARGET_DIR/OPC-Router-$GITHUB_REPO-*/"
 	else
 		install_package "tar"
