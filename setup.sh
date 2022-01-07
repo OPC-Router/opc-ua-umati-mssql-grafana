@@ -225,6 +225,18 @@ $($SUDOX docker-compose up -d)
 
 # Detect IP address
 IP=$(detect_ip_address)
+echo "Waiting for final steps to complete"
+GRAF_REACHABLE = 1
+while [[ GRAF_REACHABLE -ne 0 ]]
+do
+	if [[ $(which "curl" 2>/dev/null) == *"/curl" ]]; then
+		curl localhost:3000 &>/dev/null
+		GRAF_REACHABLE=$?
+	elif [[ $(which "wget" 2>/dev/null) == *"/wget" ]]; then
+		wget localhost:3000 &>/dev/null
+		GRAF_REACHABLE=$?
+	fi
+done
 echo "Sample was installed successfully! Open http://$IP:3000 in a browser!"
 
 #check if xdg-open is installed to launch the default brwoser
