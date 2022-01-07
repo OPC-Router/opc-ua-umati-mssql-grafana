@@ -67,7 +67,7 @@ Catch
 }
 
 $GITHUB_FILENAME = $TARGET_DIR + ".zip"
-Invoke-WebRequest -Uri $GITHUB_ADRESS -OutFile $GITHUB_FILENAME -Headers @{'Authorization' = 'Basic dG9rZW46Z2hwX3hHbWJkc0pKS3FWRnhLaUVncWVLSWg5Mk4zQ0E3SDBVUmoyNg=='}
+Invoke-WebRequest -Uri $GITHUB_ZIP_ADRESS -OutFile $GITHUB_FILENAME -Headers @{'Authorization' = 'Basic dG9rZW46Z2hwX3hHbWJkc0pKS3FWRnhLaUVncWVLSWg5Mk4zQ0E3SDBVUmoyNg=='}
 Expand-Archive -Path $GITHUB_FILENAME -DestinationPath $TARGET_DIR -Force
 Remove-Item -Path $GITHUB_FILENAME -Force
 cd $TARGET_DIR
