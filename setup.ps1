@@ -1,10 +1,11 @@
 $GIT_TOKEN="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"
-$TARGET_DIR="OPCRouter_Umati_MSSQL_Grafana"
-$DockerInstaller="Docker Desktop Installer.exe"
+$GITHUB_REPO="opc-ua-umati-mssql-grafana"
+
+## Don't change this
+$TARGET_DIR="OPCRouter_" + $GITHUB_REPO -replace '-','_'
+$GITHUB_ZIP_ADRESS = "https://api.github.com/repos/OPC-Router/" + $GITHUB_REPO + "/zip"
+$GITHUB_DIR = $GITHUB_REPO + "-main"
 $WindowsVersion=(Get-ComputerInfo).OsProductType
-$GITHUB_ADRESS = "https://github.com/OPC-Router/opc-ua-umati-mssql-grafana/archive/refs/heads/main.zip"
-$GITHUB_FILENAME = "OPCRouter_Umati_MSSQL_Grafana.zip"
-$GITHUB_DIR = "opc-ua-umati-mssql-grafana-main"
 
 $HostIP = (
     Get-NetIPConfiguration |
@@ -13,6 +14,18 @@ $HostIP = (
         $_.NetAdapter.Status -ne "Disconnected"
     }
 ).IPv4Address.IPAddress
+
+function Get-UrlStatusCode([string] $Url)
+{
+    try
+    {
+        (Invoke-WebRequest -Uri $Url -UseBasicParsing -DisableKeepAlive).StatusCode
+    }
+    catch [Net.WebException]
+    {
+        [int]$_.Exception.Response.StatusCode
+    }
+}
 
 Write-Host ""
 Write-Host "Welcome to the OPC Router 4 docker sample with Umati OPC UA, MSSQL and Grafana!"
@@ -53,6 +66,7 @@ Catch
 	}
 }
 
+$GITHUB_FILENAME = $TARGET_DIR + ".zip"
 Invoke-WebRequest -Uri $GITHUB_ADRESS -OutFile $GITHUB_FILENAME -Headers @{'Authorization' = 'Basic dG9rZW46Z2hwX3hHbWJkc0pKS3FWRnhLaUVncWVLSWg5Mk4zQ0E3SDBVUmoyNg=='}
 Expand-Archive -Path $GITHUB_FILENAME -DestinationPath $TARGET_DIR -Force
 Remove-Item -Path $GITHUB_FILENAME -Force
@@ -62,6 +76,12 @@ sleep 10
 docker-compose up -d
 
 $HostAdress = "http://" + $HostIP + ":3000/d/v972rfT7k/umati-machine-data";
-sleep 10
+Write-Host "Waiting for final steps to complete"
+$GRAFANA_REACHABLE=999
+while ($GRAFANA_REACHABLE != 200) 
+{
+	$GRAFANA_REACHABLE = Get-UrlStatusCode "localhost:3000"
+	sleep 3
+}
 Write-Host "Sample was installed successfully! Open" $HostAdress "in a browser!"
 Start-Process $HostAdress
