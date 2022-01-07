@@ -145,10 +145,8 @@ get_and_run_docker_installer() {
 	elif [[ $(which "wget" 2>/dev/null) == *"/wget" ]]; then
 		wget -O - https://get.docker.com | bash -
 	else
-		#TODO install curl?
-		echo "Unable to automatically install docker runtime. Visit https://docs.docker.com/engine/install/ to see how you may install it yourself."
-		echo "Please run the previously entered command again once you installed docker."
-		exit 1
+		install_package "curl"
+		get_and_run_docker_installer
 	fi
 }
 
@@ -157,9 +155,9 @@ detect_ip_address() {
 	local IP
 	IP_COMMAND=$(type "ip" &> /dev/null && echo "ip addr show" || echo "ifconfig")
 	if [ "$HOST_PLATFORM" = "osx" ]; then
-		IP=$($IP_COMMAND | grep inet | grep -v inet6 | grep -v 127.0.0.1 | grep -Eo "([0-9]+\.){3}[0-9]+" | head -1)
+		IP=$($IP_COMMAND | grep inet | grep -v inet6 | grep -v 127.0.0.1 | grep -v docker | grep -Eo "([0-9]+\.){3}[0-9]+" | head -1)
 	else
-		IP=$($IP_COMMAND | grep inet | grep -v inet6 | grep -v 127.0.0.1 | grep -Eo "([0-9]+\.){3}[0-9]+\/[0-9]+" | cut -d "/" -f1)
+		IP=$($IP_COMMAND | grep inet | grep -v inet6 | grep -v 127.0.0.1 | grep -v docker | grep -Eo "([0-9]+\.){3}[0-9]+\/[0-9]+" | cut -d "/" -f1 | head -1)
 	fi
 	echo $IP
 }
@@ -170,8 +168,8 @@ unpack_archive() {
 		mv "$TARGET_DIR/OPC-Router-$GITHUB_REPO-*/* $TARGET_DIR"
 		rm -rf "$TARGET_DIR/OPC-Router-$GITHUB_REPO-*/"
 	else
-		#TODO install tar?
-		echo "unable to unpack tarball"
+		install_package "tar"
+		unpack_archive
 	fi
 }
 
@@ -202,7 +200,8 @@ fi
 #download required files
 if [[ $(which "git" 2>/dev/null) == *"/git" ]]; then
 	git clone $GITHUB_REPO_ADRESS $TARGET_DIR
-elif [[ $(which "tar" 2>/dev/null) == *"/tar" ]]; then
+else
+	install_package "curl"
 	if [[ $(which "curl" 2>/dev/null) == *"/curl" ]]; then
 		curl -H "Authorization: token $GIT_TOKEN" -fsSL $GITHUB_TARBALL_ADRESS > $TARGETDIR.tar.gz
 		unpack_archive
@@ -210,11 +209,9 @@ elif [[ $(which "tar" 2>/dev/null) == *"/tar" ]]; then
 		wget --header="Authorization: token $GIT_TOKEN" -O - $GITHUB_TARBALL_ADRESS > $TARGETDIR.tar.gz
 		unpack_archive
 	else
-		echo "Unable to do things" #TODO install some components?
+		echo "Unable to do things"
 		exit 1
 	fi
-else
-	echo "Unable to do things" #TODO install some components?
 fi
 
 #ensure docker daemon is running
