@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana">
     <img src="img/opc_router_logo.png" alt="Logo" >
   </a>
     <br />
@@ -29,6 +29,7 @@
 * [Contact](#contact)
 
 ## General Information
+//Nochmal auf den OPC Router eingehen (Runtime..)
 - This docker sample is a fully functional OPC Router 4 project sample.
 - The goal is to use an Umati OPC UA server, with the help of the OPC Router 4, to store data in an MSSQL database and visualize it through Grafana.
 
@@ -47,7 +48,7 @@
 For both operating systems, there are prerequisites that must already be met:
 - Connection to the Internet
 - Browser (If you are using **Firefox** then use a Version greater than **95.0.1**)
-- [OPC Router Managment](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now) (🚩The installation is only possible on Windows systems)
+- [OPC Router Managment](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now) (🚩 The installation is only possible on Windows systems)
 
 ### **Windows**
 A system with Docker and OPC Router Management installed is a prerequisite for the project. This same system is required to have internet access.
@@ -59,10 +60,10 @@ If you don't have Docker installed yet, you can download it [here](https://www.d
 
 
  ### **automatic Installation:**
-💡When installing on a Linux-based machine, all required applications can be installed automatically, this is done during setup.  
+💡 When installing on a Linux-based machine, all required applications can be installed automatically, this is done during setup.  
 
 ### **manually Installation:**
- ⚠️If you do not want the applications to be installed automatically, you must do this manually:
+ ⚠️ If you do not want the applications to be installed automatically, you must do this manually:
   - Docker
   - Docker-compose
 
@@ -81,7 +82,7 @@ bash <(curl -sSLf https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/lin
 
 ## **Ready to Use**
 You should now have installed everything successfully and you can now explore the possibilities of the OPC Router.  
-If something unexpectedly fails here, feel free to [contact](https://www.opc-router.com/contact-and-support/) us
+If something unexpectedly fails here, feel free to [contact](https://www.opc-router.com/contact-and-support/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana) us
 
 # Usage
 
@@ -94,11 +95,11 @@ Now you only have to call the address [http://localhost:3000/](http://localhost:
 
 
 ## **OPC Router Managment**
-If you want to view the communication between the Umati OPC UA server and the OPC router which serves as middleware that forwards the data to the MSSQL database, start the OPC router management now.
+If you want to view the communication between the Umati OPC UA server and the OPC Router Runtime which serves as middleware that forwards the data to the MSSQL database, start the OPC router management now.
 
-### 1. **Add Router to the OPC Router Management**
-To be able to view the data you have to connect to the OPC Router instance first.  
- You have to click on the plus symbol at plug-ins in the OPC Router Management (see picture)...
+### 1. **Add Runtime to the OPC Router Management**
+To be able to observe the data transfers you have to connect to the OPC Router Runtime first.  
+ Click on the plus symbol at plug-ins in the OPC Router Management (see picture)...
 ![First Startup](./img/OPCRouterConfigureService.png)
 ...and select **Integrate existing service...**
 ![First Startup](./img/OPCRouterConfigIntegrateExistingService.png)
@@ -119,4 +120,4 @@ To observe the current and historical state select this pane and for example sel
 ![First Startup](./img/UmatiDockerSampleOPCRouter.png)
 
 ## Contact
-Created by [@inray](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now) - feel free to contact us!
+Created by [@inray](https://www.opc-router.com/contact-and-support/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana) - feel free to contact us!
