@@ -21,7 +21,8 @@
 * [Getting Started](#Getting-Started)
   * [Prerequisites](#Prerequisites)
   * [Installation](#Installation)
-    * [Ready to Use](#Ready-to-Use)
+    - [Windows](#Windows)
+    - [Linux](#Linuxe)
 * [Usage](#usage)
 * [Contact](#contact)
 
@@ -54,8 +55,9 @@ If you don't have Docker installed yet, you can download it [here](https://www.d
 
 ### **Linux**
 
+
  ### **automatic Installation:**
-💡When installing on a Linux-based machine, all required applications can be installed automatically, this is done during setup.
+💡When installing on a Linux-based machine, all required applications can be installed automatically, this is done during setup.  
 
 ### **manually Installation:**
  ⚠️If you do not want the applications to be installed automatically, you must do this manually:
@@ -76,7 +78,7 @@ bash <(curl -sSLf https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/lin
 
 ## **Ready to Use**
 You should now have installed everything successfully and you can now explore the possibilities of the OPC Router.  
-If something unexpectedly fails here, feel free to [contact](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now) us
+If something unexpectedly fails here, feel free to [contact](https://www.opc-router.com/contact-and-support/) us
 
 # Usage
 Now you can navigate to [http://localhost:3000/](http://localhost:3000/d/v972rfT7k/sample-dashboard) in your browser and take a look onto the Grafana Dashboard which visualizes the written data. The data was gathered by the OPC Router 4 from the Umati OPC UA Server and written to the MSSQL database.
