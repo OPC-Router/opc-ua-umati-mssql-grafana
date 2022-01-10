@@ -8,7 +8,9 @@
   <p align="center">
     OPC Router Docker Sample for a Umati MSSQL communication with Grafana Dashboard.
     <br />
-    <a href="https://github.com/OPC-Router/opc-ua-umati-mssql-grafana/blob/main/README.md"><strong>Explore the docs »</strong></a>
+    <a href="https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana"><strong>OPC Router</strong></a>
+    -
+    <a href="https://github.com/OPC-Router/opc-ua-umati-mssql-grafana/blob/main/README.md"><strong>Contact</strong></a>
     <br />
     <br />
   </p>
@@ -115,7 +117,8 @@ Enter your docker hosts IP address and Port 27020, click **Test connection** and
 
 ![First Startup](./img/AddDocker.png)
 
-To observe the current and historical state select this pane and for example select the connection transferring the visualized data.
+### 3. Open the status page
+To observe the current and historical transfers select this pane and for example select the connection transferring the visualized data.
 
 ![First Startup](./img/UmatiDockerSampleOPCRouter.png)
 
