@@ -25,7 +25,7 @@
     - [Linux](#Linux)
 * [Usage](#usage)
     - [Grafana](#Grafana)
-    - [Opc Router Managment](#Opc-Router-Managment)
+    - [Opc Router Managment](#Opc-Router-Managament)
 * [Contact](#contact)
 
 ## General Information
