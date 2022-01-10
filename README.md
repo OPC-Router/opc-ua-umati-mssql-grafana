@@ -21,6 +21,7 @@
 * [Getting Started](#Getting-Started)
   * [Prerequisites](#Prerequisites)
   * [Installation](#Installation)
+    * [Ready to Use](#Ready-to-Use)
 * [Usage](#usage)
 * [Contact](#contact)
 
@@ -43,7 +44,7 @@
 For both operating systems, there are prerequisites that must already be met:
 - Connection to the Internet
 - Browser (If you are using **Firefox** then use a Version greater than **95.0.1**)
-- [OPC Router Managment](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now)
+- [OPC Router Managment](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now) (🚩The installation is only possible on Windows systems)
 
 ### **Windows**
 A system with Docker and OPC Router Management installed is a prerequisite for the project. This same system is required to have internet access.
@@ -62,8 +63,8 @@ If you don't have Docker installed yet, you can download it [here](https://www.d
 
 
 ## **Installation**
-After the OPC Router Management and Docker are installed open up a commandline and enter the following:
-**This process may take up to a couple of minutes.**
+Now open the command line after you have installed the required software for your operating system:  
+**❕This process may take up to a couple of minutes❕**
 ### **Windows**
 ```powershell
 $(Invoke-WebRequest https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/win -UseBasicParsing).Content | iex
@@ -71,7 +72,11 @@ $(Invoke-WebRequest https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/w
 ### **Linux**
 ````bash
 bash <(curl -sSLf https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linux)
-````
+````  
+
+## **Ready to Use**
+You should now have installed everything successfully and you can now explore the possibilities of the OPC Router.  
+If something unexpectedly fails here, feel free to [contact](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now) us
 
 # Usage
 Now you can navigate to [http://localhost:3000/](http://localhost:3000/d/v972rfT7k/sample-dashboard) in your browser and take a look onto the Grafana Dashboard which visualizes the written data. The data was gathered by the OPC Router 4 from the Umati OPC UA Server and written to the MSSQL database.
