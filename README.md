@@ -22,8 +22,10 @@
   * [Prerequisites](#Prerequisites)
   * [Installation](#Installation)
     - [Windows](#Windows)
-    - [Linux](#Linuxe)
+    - [Linux](#Linux)
 * [Usage](#usage)
+    - [Grafana](#Grafana)
+    - [Opc Router Managment](#Opc-Router-Managment)
 * [Contact](#contact)
 
 ## General Information
@@ -62,6 +64,7 @@ If you don't have Docker installed yet, you can download it [here](https://www.d
 ### **manually Installation:**
  ⚠️If you do not want the applications to be installed automatically, you must do this manually:
   - Docker
+  - Docker-compose
 
 
 ## **Installation**
@@ -81,18 +84,33 @@ You should now have installed everything successfully and you can now explore th
 If something unexpectedly fails here, feel free to [contact](https://www.opc-router.com/contact-and-support/) us
 
 # Usage
-Now you can navigate to [http://localhost:3000/](http://localhost:3000/d/v972rfT7k/sample-dashboard) in your browser and take a look onto the Grafana Dashboard which visualizes the written data. The data was gathered by the OPC Router 4 from the Umati OPC UA Server and written to the MSSQL database.
-If you like to inspect the communication of the OPC Router 4 instance you may launch the OPC Router Management.
 
-After the start of the Management it is required to configure a connection to the docker container. 
+## **Grafana**
+Grafana is started directly with the installation and can now be viewed directly. 
 
+Now you only have to call the address [http://localhost:3000/](http://localhost:3000/d/v972rfT7k/sample-dashboard) to the interface with your browser and see the visualized data directly.
+
+> ❗ Make sure that you can only call the localhost address if you are on the device that is also used for the Docker installation, otherwise you have to call the address of the device on which the Docker installation is located.
+
+
+## **OPC Router Managment**
+If you want to view the communication between the Umati OPC UA server and the OPC router which serves as middleware that forwards the data to the MSSQL database, start the OPC router management now.
+
+### 1. **Add Router to the OPC Router Management**
+To be able to view the data you have to connect to the OPC Router instance first.  
+ You have to click on the plus symbol at plug-ins in the OPC Router Management (see picture)...
 ![First Startup](./img/OPCRouterConfigureService.png)
-
-To do this you have to click on the plus symbol at plug-ins in the OPC Router Management (see picture) and select "Integrade existing service...".
-
+...and select **Integrate existing service...**
 ![First Startup](./img/OPCRouterConfigIntegrateExistingService.png)
 
-Enter your docker hosts IP address and Port 27020, click "Test connection" and confirm with OK.
+### 2. **Configure Connection**
+-   Name: (You can write here what you want)
+-   Username & Password **(Let it Empty)**
+-   Server IP: 127.0.0.1
+    > ❗ Make sure that you can only call the localhost / 127.0.0.1 address if you are on the device that is also used for the Docker installation, otherwise you have to call the address of the device on which the Docker installation is located.
+-   Port: 27020
+
+Enter your docker hosts IP address and Port 27020, click **Test connection** and confirm with **OK**.
 
 ![First Startup](./img/AddDocker.png)
 
