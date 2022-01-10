@@ -51,8 +51,9 @@ If you don't have Docker installed yet, you can download it [here](https://www.d
 - Docker
 
 ### **Linux**
-**✔️When installing on a Linux-based machine, all required applications can be installed automatically, this is done during setup.  
-If you do not want Docker to be installed automatically you have to do this manually.**
+**✔️When installing on a Linux-based machine, all required applications can be installed automatically, this is done during setup.**
+
+ >🚩If you **do not** want Docker to be installed automatically you have to do this **manually**.
 
 
 ## **Installation**
