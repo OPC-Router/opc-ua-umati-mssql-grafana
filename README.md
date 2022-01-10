@@ -50,20 +50,25 @@ A system with Docker and OPC Router Management installed is a prerequisite for t
 If you don't have Docker installed yet, you can download it [here](https://www.docker.com/get-started). The OPC Router Management can be found on our [website](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now).
 - Docker
 
-### **Linux**
-**✔️When installing on a Linux-based machine, all required applications can be installed automatically, this is done during setup.**
 
- >🚩If you **do not** want Docker to be installed automatically you have to do this **manually**.
+### **Linux**
+
+ ### **automatic Installation:**
+💡When installing on a Linux-based machine, all required applications can be installed automatically, this is done during setup.
+
+### **manually Installation:**
+ ⚠️If you do not want the applications to be installed automatically, you must do this manually:
+  - Docker
 
 
 ## **Installation**
 After the OPC Router Management and Docker are installed open up a commandline and enter the following:
 **This process may take up to a couple of minutes.**
-### Windows
+### **Windows**
 ```powershell
 $(Invoke-WebRequest https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/win -UseBasicParsing).Content | iex
 ```
-### Linux
+### **Linux**
 ````bash
 bash <(curl -sSLf https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linux)
 ````
