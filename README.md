@@ -35,6 +35,7 @@
 - [Docker](https://www.docker.com/)
 - [Umati OPC UA Server](https://umati.org/)
 - [Grafana](https://grafana.com/)
+- [MSSQL](https://www.microsoft.com/de-de/sql-server/)
 
 # Getting Started
 
@@ -42,7 +43,7 @@
 For both operating systems, there are prerequisites that must already be met:
 - Connection to the Internet
 - Browser (If you are using **Firefox** then use a Version greater than **95.0.1**)
-- OPC Router Managment
+- [OPC Router Managment](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now)
 
 ### **Windows**
 A system with Docker and OPC Router Management installed is a prerequisite for the project. This same system is required to have internet access.
