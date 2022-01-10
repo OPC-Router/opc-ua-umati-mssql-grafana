@@ -2,6 +2,7 @@ version: "3.3"
 services:
   umati:
     image: ghcr.io/umati/sample-server:main
+    restart: unless-stopped
     ports:
       - 4840:4840
 
@@ -25,6 +26,7 @@ services:
   # find out how to connect to mssql
   grafana:
     image: grafana/grafana-oss
+    restart: unless-stopped
     ports:
       - 3000:3000
     environment: 
@@ -41,6 +43,7 @@ services:
   # find out what volumes to use to persist data
   mssql:
     image: mcr.microsoft.com/mssql/server
+    restart: unless-stopped
     ports:
       - 1433:1433
     environment:
@@ -49,6 +52,7 @@ services:
   # helper container to initalize the mssql container
   mssql_setup:
     image: mcr.microsoft.com/mssql/server
+    restart: unless-stopped
     entrypoint: /bin/bash
     command: /opt/mssql/bin/setup.sh
     environment:
