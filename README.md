@@ -1,10 +1,26 @@
-# OPC Router Docker Sample
-> OPC Router Docker Sample for a Umati MSSQL communication with Grafana Dashboard.
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="img/opc_router_logo.png" alt="Logo" >
+  </a>
+    <br />
+    <br />
+  <h1 align="center">OPC Router Docker Sample</h1>
+  <p align="center">
+    OPC Router Docker Sample for a Umati MSSQL communication with Grafana Dashboard.
+    <br />
+    <a href="https://github.com/OPC-Router/opc-ua-umati-mssql-grafana/blob/main/README.md"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+  </p>
+</div>
 
+# About the Sample
 ## Contents
 * [General Info](#general-information)
 * [Components](#components)
-* [Requirements](#requirements)
+* [Getting Started](#Getting-Started)
+  * [Prerequisites](#Prerequisites)
+  * [Installation](#Installation)
 * [Usage](#usage)
 * [Contact](#contact)
 
@@ -20,28 +36,37 @@
 - [Umati OPC UA Server](https://umati.org/)
 - [Grafana](https://grafana.com/)
 
-## Requirements
+# Getting Started
+
+## **Prerequisites**
+For both operating systems, there are prerequisites that must already be met:
+- Connection to the Internet
+- Browser (If you are using **Firefox** then use a Version greater than **95.0.1**)
+- OPC Router Managment
+
+### **Windows**
 A system with Docker and OPC Router Management installed is a prerequisite for the project. This same system is required to have internet access.
 If you don't have Docker installed yet, you can download it [here](https://www.docker.com/get-started). The OPC Router Management can be found on our [website](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now).
-If you are using **Firefox** then use a Version greater than *95.0.1*
+- Docker
 
+### **Linux**
+**✔️When installing on a Linux-based machine, all required applications can be installed automatically, this is done during setup.  
+If you do not want Docker to be installed automatically you have to do this manually.**
+
+
+## **Installation**
 After the OPC Router Management and Docker are installed open up a commandline and enter the following:
-
-**Windows**:
+**This process may take up to a couple of minutes.**
+### Windows
 ```powershell
 $(Invoke-WebRequest https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/win -UseBasicParsing).Content | iex
 ```
-
-**Linux**:
+### Linux
 ````bash
 bash <(curl -sSLf https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linux)
 ````
 
-This process may take up to a couple of minutes.
-
-Now all nessecery components are ready to use.
-
-## Usage
+# Usage
 Now you can navigate to [http://localhost:3000/](http://localhost:3000/d/v972rfT7k/sample-dashboard) in your browser and take a look onto the Grafana Dashboard which visualizes the written data. The data was gathered by the OPC Router 4 from the Umati OPC UA Server and written to the MSSQL database.
 If you like to inspect the communication of the OPC Router 4 instance you may launch the OPC Router Management.
 
