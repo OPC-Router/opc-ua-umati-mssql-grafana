@@ -23,6 +23,7 @@
 ## Requirements
 A system with Docker and OPC Router Management installed is a prerequisite for the project. This same system is required to have internet access.
 If you don't have Docker installed yet, you can download it [here](https://www.docker.com/get-started). The OPC Router Management can be found on our [website](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now).
+If you are using **Firefox** then use a Version greater than *95.0.1*
 
 After the OPC Router Management and Docker are installed open up a commandline and enter the following:
 
