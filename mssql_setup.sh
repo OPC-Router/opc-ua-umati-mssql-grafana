@@ -33,7 +33,8 @@ BEGIN
 		[RelativePiecesOut] [int] NOT NULL,
 		[RelativePiecesIn] [int] NOT NULL,
 		[FeedSpeed] [int] NOT NULL,
-		[Timestamp] [datetime] NOT NULL
+		[Timestamp] [datetime] NOT NULL,
+		[ActualCycle] [int] NOT NULL
 	) ON [PRIMARY]
 END
 
