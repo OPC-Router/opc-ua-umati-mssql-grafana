@@ -111,10 +111,10 @@ If you want to view the communication between the Umati OPC UA server and the OP
 
 ### **1. Add Runtime to the OPC Router Management**
 To be able to observe the data transfers you have to connect to the OPC Router Runtime first.  
- Click on the plus symbol at plug-ins in the OPC Router Management (see picture)...
-![First Startup](./img/OPCRouterConfigureService.png)
+ Click on the plus symbol at plug-ins in the OPC Router Management (see gif)...
+![First Startup](./img/Add_Docker.gif)
 ...and select **Integrate existing service...**
-![First Startup](./img/OPCRouterConfigIntegrateExistingService.png)
+
 
 ### **2. Configure Connection**
 -   Name: (You can write here what you want)
