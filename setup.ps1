@@ -1,4 +1,4 @@
-$GIT_TOKEN="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"
+$GIT_TOKEN="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"
 $GITHUB_REPO="opc-ua-umati-mssql-grafana"
 
 ## Don't change this
