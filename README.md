@@ -128,9 +128,11 @@ Enter your docker hosts IP address and Port 27020, click **Test connection** and
 ![First Startup](./img/AddDocker.png)
 
 ### **3. Open the status page**
-To observe the current and historical transfers select this pane and for example select the connection transferring the visualized data.
-
+To observe the current and historical transfers select the state panel and click on the connection **Umati2SQL**
 <img src="./img/UmatiDockerSampleOPCRouter.gif"/>
+
+**Now you can see the current and previous transfer data, this allows a direct insight into the traffic and the interaction of the individual plug-ins.**  
+>💡 The overview allows you to follow the actions of the OPC Router (the green dots in the timeline), in case of possible errors you can see here exactly where the error comes from.
 
 # Other Samples
 - [Microsoft Teams via Rest API](https://github.com/OPC-Router/opc-ua-uaserver-msteams)
