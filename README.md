@@ -130,7 +130,7 @@ Enter your docker hosts IP address and Port 27020, click **Test connection** and
 ### **3. Open the status page**
 To observe the current and historical transfers select this pane and for example select the connection transferring the visualized data.
 
-![First Startup](./img/UmatiDockerSampleOPCRouter.png)
+<img src="./img/UmatiDockerSampleOPCRouter.gif"/>
 
 # Other Samples
 - [Microsoft Teams via Rest API](https://github.com/OPC-Router/opc-ua-uaserver-msteams)
