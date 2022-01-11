@@ -135,6 +135,9 @@ To observe the current and historical transfers select the state panel and click
 >💡 The overview allows you to follow the actions of the OPC Router (the green dots in the timeline), in case of possible errors you can see here exactly where the error comes from.
 
 # Other Samples
+To get an even bigger insight into the work of the OPC Router we have created more Docker samples with other exciting combinations of plugins.
+
+>💡With its numerous [Plug-ins](https://www.opc-router.com/plug-ins/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana), the OPC Router can be used flexibly. In both simple and complex system environments, it can connect a wide variety of applications with each other.
 - [Microsoft Teams via Rest API](https://github.com/OPC-Router/opc-ua-uaserver-msteams)
 - [InfluxDB](https://github.com/OPC-Router/iot-edge-opc-plc-influx-db)
 - [Umati & InfluxDB2](https://github.com/OPC-Router/opc-ua-uaserver-msteams)
