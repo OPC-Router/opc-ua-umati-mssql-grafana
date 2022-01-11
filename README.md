@@ -10,7 +10,7 @@
     <br />
     <a href="https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana"><strong>OPC Router</strong></a>
     -
-    <a href="https://github.com/OPC-Router/opc-ua-umati-mssql-grafana/blob/main/README.md"><strong>Contact</strong></a>
+    <a href="https://www.opc-router.com/contact-and-support/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana"><strong>Contact</strong></a>
     <br />
     <br />
   </p>
@@ -18,8 +18,10 @@
 
 # About the Sample
 ## Contents
-* [General Info](#general-information)
-* [Components](#components)
+* [About the Sample](#About-the-Sample)
+  * [General Info](#general-information)
+    * [What is the sample doing?](#What-is-the-sample-doing?)
+  * [Components](#components)
 * [Getting Started](#Getting-Started)
   * [Prerequisites](#Prerequisites)
   * [Installation](#Installation)
@@ -27,11 +29,18 @@
     - [Linux](#Linux)
 * [Usage](#usage)
     - [Grafana](#Grafana)
-    - [Opc Router Managment](#Opc-Router-Managament)
+    - [OPC Router Management](#Opc-Router-Management)
+      *  [Configure the connection](#2.-Configure-Connection)
 * [Contact](#contact)
 
 ## General Information
-//Nochmal auf den OPC Router eingehen (Runtime..)
+> The OPC Router 4 is generally structured in two parts:
+> - The Runtime
+> - Management with the user interface
+>  
+> The two components may run on two completely different systems
+> To set/edit the OPC Router 4, it is connected to the OPC Router Runtime via OPC Router Management, this abstraction allows the settings to be made remotely.
+### **What is the sample doing?**
 - This docker sample is a fully functional OPC Router 4 project sample.
 - The goal is to use an Umati OPC UA server, with the help of the OPC Router 4, to store data in an MSSQL database and visualize it through Grafana.
 
@@ -96,17 +105,17 @@ Now you only have to call the address [http://localhost:3000/](http://localhost:
 > ❗ Make sure that you can only call the localhost address if you are on the device that is also used for the Docker installation, otherwise you have to call the address of the device on which the Docker installation is located.
 
 
-## **OPC Router Managment**
+## **OPC Router Management**
 If you want to view the communication between the Umati OPC UA server and the OPC Router Runtime which serves as middleware that forwards the data to the MSSQL database, start the OPC router management now.
 
-### 1. **Add Runtime to the OPC Router Management**
+### **1. Add Runtime to the OPC Router Management**
 To be able to observe the data transfers you have to connect to the OPC Router Runtime first.  
  Click on the plus symbol at plug-ins in the OPC Router Management (see picture)...
 ![First Startup](./img/OPCRouterConfigureService.png)
 ...and select **Integrate existing service...**
 ![First Startup](./img/OPCRouterConfigIntegrateExistingService.png)
 
-### 2. **Configure Connection**
+### **2. Configure Connection**
 -   Name: (You can write here what you want)
 -   Username & Password **(Let it Empty)**
 -   Server IP: 127.0.0.1
@@ -117,7 +126,7 @@ Enter your docker hosts IP address and Port 27020, click **Test connection** and
 
 ![First Startup](./img/AddDocker.png)
 
-### 3. Open the status page
+### **3. Open the status page**
 To observe the current and historical transfers select this pane and for example select the connection transferring the visualized data.
 
 ![First Startup](./img/UmatiDockerSampleOPCRouter.png)
