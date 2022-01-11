@@ -31,6 +31,7 @@
     - [Grafana](#Grafana)
     - [OPC Router Management](#Opc-Router-Management)
       *  [Configure the connection](#2.-Configure-Connection)
+* [Other samples](#Other-samples)
 * [Contact](#contact)
 
 ## General Information
@@ -38,7 +39,7 @@
 > - The Runtime
 > - Management with the user interface
 >  
-> The two components may run on two completely different systems
+> The two components may run on two completely different systems.  
 > To set/edit the OPC Router 4, it is connected to the OPC Router Runtime via OPC Router Management, this abstraction allows the settings to be made remotely.
 ### **What is the sample doing?**
 - This docker sample is a fully functional OPC Router 4 project sample.
@@ -131,5 +132,10 @@ To observe the current and historical transfers select this pane and for example
 
 ![First Startup](./img/UmatiDockerSampleOPCRouter.png)
 
-## Contact
-Created by [@inray](https://www.opc-router.com/contact-and-support/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana) - feel free to contact us!
+# Other Samples
+- [Microsoft Teams via Rest API](https://github.com/OPC-Router/opc-ua-uaserver-msteams)
+- [InfluxDB](https://github.com/OPC-Router/iot-edge-opc-plc-influx-db)
+- [Umati & InfluxDB2](https://github.com/OPC-Router/opc-ua-uaserver-msteams)
+
+# Contact
+If you have any questions or even problems with the implementation of the sample, feel free to [contact](https://www.opc-router.com/contact-and-support/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana) us
