@@ -60,7 +60,7 @@
 For both operating systems, there are prerequisites that must already be met:
 - Connection to the Internet
 - Browser (If you are using **Firefox** then use a Version greater than **95.0.1**)
-- [OPC Router Managment](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now) (🚩 The installation is only possible on Windows systems)
+- [OPC Router Managment](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now) (The OPC Router management is available for Windows systems)
 
 ### **Windows**
 A system with Docker and OPC Router Management installed is a prerequisite for the project. This same system is required to have internet access.
