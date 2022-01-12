@@ -100,9 +100,8 @@ If something unexpectedly fails here, feel free to [contact](https://www.opc-rou
 
 ## **Grafana**
 Grafana is started directly with the installation and can now be viewed directly. 
-![Grafana](./img/Grafana.png)
 Now you only have to call the address [http://localhost:3000/](http://localhost:3000/d/v972rfT7k/sample-dashboard) to the interface with your browser and see the visualized data directly.
-
+![Grafana](./img/Grafana.png)
 > ❗ Make sure that you can only call the localhost address if you are on the device that is also used for the Docker installation, otherwise you have to call the address of the device on which the Docker installation is located.
 
 
