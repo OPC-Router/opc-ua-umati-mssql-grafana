@@ -68,8 +68,11 @@ If you don't have Docker installed yet, you can download it [here](https://www.d
 - Docker
 
 
-### **Linux**
+### **Linux**  
+In order to download and install the sample on Linux there are specific requirements
 
+- wget or curl
+- root user rights **(Only for the installation of docker-runtime and docker-compose)**
 
  ### **automatic Installation:**
 💡 When installing on a Linux-based machine, all required applications can be installed automatically, this is done during setup.  
@@ -88,8 +91,15 @@ Now open the command line after you have installed the required software for you
 $(Invoke-WebRequest https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/win -UseBasicParsing).Content | iex
 ```
 ### **Linux**
+
+Download via **curl**:
 ````bash
 bash <(curl -sSLf https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linux)
+````  
+
+Download via **wget**:
+````bash
+bash <(wget -O - https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linux)
 ````  
 
 ## **Ready to Use**
