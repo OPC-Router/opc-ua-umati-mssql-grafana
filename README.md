@@ -33,7 +33,8 @@ Download via **wget**:
 bash <(wget -O - https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linux)
 ````  
 
-**If something unexpectedly fails here, feel free to [contact](https://www.opc-router.com/contact-and-support/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana) us**
+**If something is unclear, please read our [documentation](#About-the-Sample) for this sample.  
+  Should your question still not be answered, feel free to [contact](https://www.opc-router.com/contact-and-support/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana) us**
 
 
 # About the Sample
