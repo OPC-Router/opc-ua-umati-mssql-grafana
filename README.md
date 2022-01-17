@@ -16,6 +16,26 @@
   </p>
 </div>
 
+# tl;dr
+### **Windows**
+```powershell
+$(Invoke-WebRequest https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/win -UseBasicParsing).Content | iex
+```
+### **Linux**
+
+Download via **curl**:
+````bash
+bash <(curl -sSLf https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linux)
+````  
+
+Download via **wget**:
+````bash
+bash <(wget -O - https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linux)
+````  
+
+**If something unexpectedly fails here, feel free to [contact](https://www.opc-router.com/contact-and-support/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana) us**
+
+
 # About the Sample
 ## Contents
 * [About the Sample](#About-the-Sample)
