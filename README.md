@@ -67,7 +67,8 @@ bash <(wget -O - https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linu
 - This docker sample is a fully functional OPC Router 4 project sample.
 - The goal is to use an Umati OPC UA server, with the help of the OPC Router 4, to store data in an MSSQL database and visualize it through Grafana.
 
-![First Startup](./img/Umati-DataDockerSample.png)
+![GitHub-Mark-Light](/img/Umati-DataDockerSample.png#gh-light-mode-only)
+![GitHub-Mark-Dark](/img/Umati-DataDockerSample_dark.png#gh-dark-mode-only)
 
 ## Components
 - [OPC Router](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now)
