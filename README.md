@@ -39,7 +39,7 @@ bash <(wget -O - https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linu
 
 
 # About the Sample
-## Contents
+## Content
 * [About the Sample](#About-the-Sample)
   * [General Info](#general-information)
     * [What is the sample doing?](#What-is-the-sample-doing?)
