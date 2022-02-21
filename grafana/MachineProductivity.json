@@ -279,7 +279,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "thresholds"
           },
           "mappings": [],
           "thresholds": {
@@ -288,14 +288,10 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
-          "unit": "none"
+          "unit": "dthms"
         },
         "overrides": []
       },
@@ -305,7 +301,7 @@
         "x": 0,
         "y": 5
       },
-      "id": 12,
+      "id": 26,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -316,13 +312,9 @@
             "lastNotNull"
           ],
           "fields": "",
-          "limit": 1,
           "values": false
         },
-        "text": {
-          "titleSize": 15
-        },
-        "textMode": "value"
+        "textMode": "auto"
       },
       "pluginVersion": "8.4.0-beta1",
       "targets": [
@@ -333,12 +325,11 @@
             "uid": "PAAAEB8D7872B0C49"
           },
           "format": "table",
-          "rawSql": "SELECT \n\t\t[AbsolutePiecesIn]\nFROM\n  MachineProductivity",
+          "rawSql": "SELECT \n\t\t[workingTime]\nFROM\n  MachineStatus",
           "refId": "A"
         }
       ],
-      "title": "Absolute Pieces In",
-      "transformations": [],
+      "title": "Working Time (hh:mm:ss)",
       "type": "stat"
     },
     {
@@ -653,6 +644,93 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "Stopped"
+                },
+                "1": {
+                  "color": "yellow",
+                  "index": 1,
+                  "text": "Prepare Time"
+                },
+                "2": {
+                  "color": "super-light-green",
+                  "index": 2,
+                  "text": "Transport"
+                },
+                "3": {
+                  "color": "light-green",
+                  "index": 3,
+                  "text": "Working"
+                },
+                "4": {
+                  "color": "dark-green",
+                  "index": 4,
+                  "text": "Finishing "
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 7,
+        "x": 17,
+        "y": 5
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "8.4.0-beta1",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "mssql",
+            "uid": "PAAAEB8D7872B0C49"
+          },
+          "format": "table",
+          "rawSql": "SELECT \n\t\t[currentState]\nFROM\n  MachineStatus",
+          "refId": "A"
+        }
+      ],
+      "title": "Stacklight",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "palette-classic"
           },
           "mappings": [],
@@ -679,7 +757,7 @@
         "x": 0,
         "y": 9
       },
-      "id": 13,
+      "id": 12,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -707,11 +785,11 @@
             "uid": "PAAAEB8D7872B0C49"
           },
           "format": "table",
-          "rawSql": "SELECT \n\t\t[AbsolutePiecesOut]\nFROM\n  MachineProductivity",
+          "rawSql": "SELECT \n\t\t[AbsolutePiecesIn]\nFROM\n  MachineProductivity",
           "refId": "A"
         }
       ],
-      "title": "Absolute Pieces Out",
+      "title": "Absolute Pieces In",
       "transformations": [],
       "type": "stat"
     },
@@ -833,7 +911,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 5,
+        "w": 4,
         "x": 10,
         "y": 9
       },
@@ -868,6 +946,217 @@
       ],
       "title": "Machine On",
       "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 0,
+        "y": 13
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 1,
+          "values": false
+        },
+        "text": {
+          "titleSize": 15
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "8.4.0-beta1",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "mssql",
+            "uid": "PAAAEB8D7872B0C49"
+          },
+          "format": "table",
+          "rawSql": "SELECT \n\t\t[AbsolutePiecesOut]\nFROM\n  MachineProductivity",
+          "refId": "A"
+        }
+      ],
+      "title": "Absolute Pieces Out",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "SignalLamp1"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "false": {
+                        "color": "transparent",
+                        "index": 1,
+                        "text": "."
+                      },
+                      "true": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "Working"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "SignalLamp2"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "false": {
+                        "color": "transparent",
+                        "index": 1,
+                        "text": "."
+                      },
+                      "true": {
+                        "color": "yellow",
+                        "index": 0,
+                        "text": "stopped"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "SignalLamp3"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "false": {
+                        "color": "transparent",
+                        "index": 1,
+                        "text": "."
+                      },
+                      "true": {
+                        "color": "red",
+                        "index": 0,
+                        "text": "error"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 5,
+        "y": 13
+      },
+      "id": 30,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "8.4.0-beta1",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "mssql",
+            "uid": "PAAAEB8D7872B0C49"
+          },
+          "format": "table",
+          "rawSql": "SELECT \n\t\t[SignalLamp1],\n\t\t[SignalLamp2],\n\t\t[SignalLamp3]\nFROM\n  MachineStatus",
+          "refId": "A"
+        }
+      ],
+      "title": "Device Status",
+      "type": "stat"
     }
   ],
   "refresh": "5s",
@@ -885,6 +1174,6 @@
   "timezone": "",
   "title": "Umati machine data",
   "uid": "v972rfT7k",
-  "version": 10,
+  "version": 13,
   "weekStart": ""
 }
