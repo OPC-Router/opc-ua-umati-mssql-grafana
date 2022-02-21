@@ -34,7 +34,9 @@ BEGIN
 		[RelativePiecesIn] [int] NOT NULL,
 		[FeedSpeed] [int] NOT NULL,
 		[Timestamp] [datetime] NOT NULL,
-		[ActualCycle] [int] NOT NULL
+		[ActualCycle] [int] NOT NULL,
+		[RunsPlanned] [int] NOT NULL,
+		[RunsCompleted] [int] NOT NULL
 	) ON [PRIMARY]
 END
 
@@ -47,7 +49,14 @@ BEGIN
 		[Alarm] [bit] NOT NULL,
 		[Error] [bit] NOT NULL,
 		[Warning] [bit] NOT NULL,
-		[Timestamp] [datetime] NOT NULL
+		[Timestamp] [datetime] NOT NULL,
+		[RecipeInRun] [bit] NOT NULL,
+		[SignalLamp1] [bit] NOT NULL,
+		[SignalLamp2] [bit] NOT NULL,
+		[SignalLamp3] [bit] NOT NULL,
+		[Calibrated] [bit] NOT NULL,
+		[MachineOn] [bit] NOT NULL,
+		[Moving] [bit] NOT NULL,
 	) ON [PRIMARY]
 END
 GO"
