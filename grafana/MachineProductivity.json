@@ -291,7 +291,7 @@
               }
             ]
           },
-          "unit": "dthms"
+          "unit": "dateTimeAsSystem"
         },
         "overrides": []
       },
@@ -311,7 +311,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "",
+          "fields": "/^Timestamp$/",
           "values": false
         },
         "textMode": "auto"
@@ -325,11 +325,11 @@
             "uid": "PAAAEB8D7872B0C49"
           },
           "format": "table",
-          "rawSql": "SELECT \n\t\t[workingTime]\nFROM\n  MachineStatus",
+          "rawSql": "SELECT \n\t\t[Timestamp]\nFROM\n  MachineStatus",
           "refId": "A"
         }
       ],
-      "title": "Working Time (hh:mm:ss)",
+      "title": "Actual Timestamp of Data",
       "type": "stat"
     },
     {
@@ -1071,6 +1071,110 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "unit": "dthms"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WorkingTime"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ErrorTime"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "StandbyTime"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 9,
+        "x": 5,
+        "y": 13
+      },
+      "id": 34,
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "mssql",
+            "uid": "PAAAEB8D7872B0C49"
+          },
+          "format": "table",
+          "rawSql": "SELECT \n\t\t[ErrorTime],\n\t\t[StandbyTime],\n\t\t[WorkingTime]\nFROM\n  MachineProductivity",
+          "refId": "A"
+        }
+      ],
+      "title": "statistical time tracking",
+      "type": "piechart"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "thresholds"
           },
           "mappings": [],
@@ -1228,6 +1332,6 @@
   "timezone": "",
   "title": "Umati machine data",
   "uid": "v972rfT7k",
-  "version": 14,
+  "version": 15,
   "weekStart": ""
 }
