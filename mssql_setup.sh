@@ -36,7 +36,10 @@ BEGIN
 		[Timestamp] [datetime] NOT NULL,
 		[ActualCycle] [int] NOT NULL,
 		[RunsPlanned] [int] NOT NULL,
-		[RunsCompleted] [int] NOT NULL
+		[RunsCompleted] [int] NOT NULL,
+		[ErrorTime] [int] NOT NULL,
+		[StandbyTime] [int] NOT NULL,
+		[WorkingTime] [int] NOT NULL
 	) ON [PRIMARY]
 END
 
@@ -57,6 +60,7 @@ BEGIN
 		[Calibrated] [bit] NOT NULL,
 		[MachineOn] [bit] NOT NULL,
 		[Moving] [bit] NOT NULL,
+		[currentState] [int] NOT NULL,
 	) ON [PRIMARY]
 END
 GO"
