@@ -137,6 +137,91 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "right",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 10,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "mssql",
+            "uid": "PAAAEB8D7872B0C49"
+          },
+          "format": "table",
+          "rawSql": "SELECT \n  $__timeEpoch(timestamp),\n\t\t[ActualCycle]\nFROM\n  MachineProductivity\nWHERE\n  $__timeFilter(timestamp)\nORDER BY\n  timestamp ASC",
+          "refId": "A"
+        }
+      ],
+      "title": "Actual Cycle",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "continuous-greens"
           },
           "mappings": [],
@@ -158,8 +243,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 14,
-        "x": 10,
+        "w": 9,
+        "x": 15,
         "y": 1
       },
       "id": 15,
@@ -883,7 +968,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 3,
+        "w": 10,
         "x": 14,
         "y": 9
       },
@@ -1087,6 +1172,21 @@
       "type": "piechart"
     },
     {
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 14,
+        "y": 13
+      },
+      "id": 36,
+      "options": {
+        "content": "\n<div align=\"center\">\n  <a href=\"https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana\">\n    <img src=\"https://www.opc-router.de/wp-content/uploads/2019/08/opc-router-logo-2x-200x54.png.webp\" alt=\"Logo\" >\n  </a>\n    <br />\n    <br />\n  <h2 align=\"center\">OPC Router Docker Sample</h2>\n  <p align=\"center\">\n    OPC Router Docker Sample for a Umati MSSQL communication with Grafana Dashboard.\n    <br />\n    <a href=\"https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana\"><strong>OPC Router - Website</strong></a>\n    <br/>\n    <a href=\"https://www.opc-router.de/opc-router-details/?utm_source=Grafana&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana\"><strong>Startup Videos</strong></a>\n    <br/>\n    <a href=\"https://www.opc-router.de/knowledge-base/?utm_source=Grafana&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana\"><strong>Knowledge Base</strong></a>\n    <br/>\n    <a href=\"https://www.opc-router.com/contact-and-support/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana\"><strong>Contact</strong></a>\n    <br />\n    <br />\n  </p>\n</div>",
+        "mode": "html"
+      },
+      "pluginVersion": "8.4.0-beta1",
+      "type": "text"
+    },
+    {
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1240,13 +1340,13 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Umati machine data",
   "uid": "v972rfT7k",
-  "version": 15,
+  "version": 22,
   "weekStart": ""
 }
