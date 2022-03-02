@@ -61,6 +61,7 @@ BEGIN
 		[MachineOn] [bit] NOT NULL,
 		[Moving] [bit] NOT NULL,
 		[currentState] [int] NOT NULL,
+		[WorkingTime] [int] NOT NULL
 	) ON [PRIMARY]
 END
 GO"
