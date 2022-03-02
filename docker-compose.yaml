@@ -1,0 +1,68 @@
+version: "3.3"
+services:
+  umati:
+    image: ghcr.io/umati/sample-server:main
+    restart: unless-stopped
+    ports:
+      - 4840:4840
+
+  opcrouter:
+    image: opcrouter/runtime
+    restart: unless-stopped
+    ports:
+      - 27020:27017
+    volumes:
+      - opc-router-db:/data/db
+      - opc-router-cert:/root/.dotnet/corefx/cryptography/x509stores/
+      - ./umati.rpe:/umati.rpe
+    depends_on:
+        - umati
+        - mssql_setup
+        - grafana
+    environment:
+      OR_I_ACCEPT_EULA: "true"
+    command: import-project --source /umati.rpe --allow-clear-config --start-service
+      
+  # find out how to connect to mssql
+  grafana:
+    image: grafana/grafana-oss
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment: 
+      GF_AUTH_DISABLE_LOGIN_FORM: "true"
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: "Admin"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana/MachineProductivity.json:/etc/grafana/dashboards/MachineProductivity.json
+    depends_on:
+        - mssql
+
+  # find out what volumes to use to persist data
+  mssql:
+    image: mcr.microsoft.com/mssql/server
+    restart: unless-stopped
+    ports:
+      - 1433:1433
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "?Super3Secure2Password1!"
+  # helper container to initalize the mssql container
+  mssql_setup:
+    image: mcr.microsoft.com/mssql/server
+    restart: unless-stopped
+    entrypoint: /bin/bash
+    command: /opt/mssql/bin/setup.sh
+    environment:
+      MSSQL_HOST: "mssql"
+      MSSQL_USERNAME: "SA"
+      MSSQL_PASSWORD: "?Super3Secure2Password1!"
+    volumes:
+      - ./mssql_setup.sh:/opt/mssql/bin/setup.sh
+    depends_on:
+      - mssql
+volumes:
+  opc-router-db:
+  opc-router-cert:
