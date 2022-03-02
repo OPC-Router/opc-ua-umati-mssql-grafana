@@ -100,7 +100,7 @@ In order to download and install the sample on Linux there are specific requirem
  ### **automatic Installation:**
 💡 When installing on a Linux-based machine, all required applications can be installed automatically, this is done during setup.  
 
-### **manually Installation:**
+### **manual Installation:**
  ⚠️ If you do not want the applications to be installed automatically, you must do this manually:
   - Docker
   - Docker-compose
