@@ -53,7 +53,6 @@ bash <(wget -O - https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linu
     - [Grafana](#Grafana)
     - [OPC Router Management](#Opc-Router-Management)
       *  [Configure the connection](#2.-Configure-Connection)
-* [Other samples](#Other-samples)
 * [Contact](#contact)
 
 ## General Information
@@ -166,14 +165,6 @@ To observe the current and historical transfers select the state panel and click
 
 **Now you can see the current and previous transfer data, this allows a direct insight into the traffic and the interaction of the individual plug-ins.**  
 >💡 The overview allows you to follow the actions of the OPC Router (the green dots in the timeline), in case of possible errors you can see here exactly where the error comes from.
-
-# Other Samples
-To get an even bigger insight into the work of the OPC Router we have created more Docker samples with other exciting combinations of plugins.
-
->💡With its numerous [Plug-ins](https://www.opc-router.com/plug-ins/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana), the OPC Router can be used flexibly. In both simple and complex system environments, it can connect a wide variety of applications with each other.
-- [Microsoft Teams via Rest API](https://github.com/OPC-Router/opc-ua-uaserver-msteams)
-- [InfluxDB](https://github.com/OPC-Router/iot-edge-opc-plc-influx-db)
-- [Umati & InfluxDB2](https://github.com/OPC-Router/opc-ua-uaserver-msteams)
 
 # Contact
 If you have any questions or even problems with the implementation of the sample, feel free to [contact](https://www.opc-router.com/contact-and-support/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana) us
