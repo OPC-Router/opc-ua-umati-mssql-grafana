@@ -237,6 +237,7 @@ do
 	fi
 done
 echo "Sample was installed successfully! Open http://$IP:3000/d/v972rfT7k/umati-machine-data in a browser!"
+echo "Once you finished observing the sample, you may stop it by running 'docker-compose down'"
 
 #check if xdg-open is installed to launch the default brwoser
 if [[ $(which "xdg-open" 2>/dev/null) == *"/xdg-open" ]]; then

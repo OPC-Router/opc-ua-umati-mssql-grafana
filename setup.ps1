@@ -97,4 +97,6 @@ while ($GRAFANA_REACHABLE -ne 200)
 	sleep 3
 }
 Write-Host "Sample was installed successfully! Open" $HostAdress "in a browser!"
+Write-Host "Once you finished observing the sample, you may stop it by running 'docker-compose down'"
+
 Start-Process $HostAdress
