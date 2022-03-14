@@ -18,7 +18,7 @@
 </div>
 
 # tl;dr
-### **Windows**
+### **Windows Powershell**
 ```powershell
 $(Invoke-WebRequest https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/win -UseBasicParsing).Content | iex
 ```
@@ -108,7 +108,7 @@ In order to download and install the sample on Linux there are specific requirem
 ## **Installation**
 Now open the command line after you have installed the required software for your operating system:  
 **❕This process may take up to a couple of minutes❕**
-### **Windows**
+### **Windows Powershell**
 ```powershell
 $(Invoke-WebRequest https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/win -UseBasicParsing).Content | iex
 ```
