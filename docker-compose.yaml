@@ -7,7 +7,7 @@ services:
       - 4840:4840
 
   opcrouter:
-    image: opcrouter/runtime:4.26.5008.38
+    image: opcrouter/runtime:4.27
     restart: unless-stopped
     ports:
       - 27020:27017
