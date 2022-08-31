@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   umati:
-    image: ghcr.io/umati/sample-server@sha256:0b984d6514c6aad2e0de388598717b96e44ae3957ba010dd5330037badb8b93b
+    image: ghcr.io/umati/sample-server:main
     restart: unless-stopped
     ports:
       - 4840:4840
