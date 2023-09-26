@@ -6,21 +6,25 @@ services:
     ports:
       - 4840:4840
   opcrouter:
-    image: opcrouter/runtime:4.27
+    image: opcrouter/runtime:5.0
     restart: unless-stopped
     ports:
-      - 27020:27017
+      - 27022:27017
+      - 8080:8080
     volumes:
-      - opc-router-db:/data/db
-      - opc-router-cert:/root/.dotnet/corefx/cryptography/x509stores/
+      - opc-router-db:/data/database
+      - opc-router-log:/var/log/opcrouter
+      - opc-router-cfg:/inray
       - ./umati.rpe:/umati.rpe
     depends_on:
         - umati
         - mssql_setup
         - grafana
     environment:
-      OR_I_ACCEPT_EULA: "true"
-    command: import-project --source /umati.rpe --allow-clear-config --start-service
+      OR_I_ACCEPT_EULA: true
+      OR_IMPORT_SOURCE: /umati.rpe
+      OR_IMPORT_ALLOW_CLEAR_CONFIG: true
+      OR_DISABLE_AUTH: true
       
   # find out how to connect to mssql
   grafana:
@@ -64,4 +68,5 @@ services:
       - mssql
 volumes:
   opc-router-db:
-  opc-router-cert:
+  opc-router-log:
+  opc-router-cfg:
