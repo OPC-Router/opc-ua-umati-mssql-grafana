@@ -27,7 +27,7 @@ function Get-UrlStatusCode([string] $Url)
 }
 
 Write-Host ""
-Write-Host "Welcome to the OPC Router 4 docker sample with Umati OPC UA, MSSQL and Grafana!"
+Write-Host "Welcome to the OPC Router 5 docker sample with Umati OPC UA, MSSQL and Grafana!"
 Write-Host ""
 
 Try {
@@ -89,6 +89,7 @@ sleep 10
 docker-compose up -d
 
 $HostAdress = "http://" + $HostIP + ":3000/d/v972rfT7k/umati-machine-data";
+$OPCRouter5HostAdress = "http://" + $HostIP + ":8080/status/connections/Umati2SQL";
 Write-Host "Waiting for final steps to complete"
 $GRAFANA_REACHABLE=999
 while ($GRAFANA_REACHABLE -ne 200) 
@@ -96,7 +97,8 @@ while ($GRAFANA_REACHABLE -ne 200)
 	$GRAFANA_REACHABLE = Get-UrlStatusCode "http://localhost:3000"
 	sleep 3
 }
-Write-Host "Sample was installed successfully! Open" $HostAdress "in a browser!"
+Write-Host "Sample was installed successfully! Open" $HostAdress " for grafana dashboard and " $OPCRouter5HostAdress " for OPC Router 5 Management Status in a browser!"
 Write-Host "Once you finished observing the sample, you may stop it by running 'docker-compose down'"
 
 Start-Process $HostAdress
+Start-Process $OPCRouter5HostAdress

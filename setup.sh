@@ -177,11 +177,11 @@ get_platform_params
 
 if [ "$IS_ROOT" = "true" ]; then
 	echo ""
-	echo "Welcome to the OPC Router 4 docker sample with Umati OPC UA, MSSQL and Grafana!"
+	echo "Welcome to the OPC Router 5 docker sample with Umati OPC UA, MSSQL and Grafana!"
 	echo ""
 else
 	echo ""
-	echo "Welcome to the OPC Router 4 docker sample with Umati OPC UA, MSSQL and Grafana! You might need to enter your password a couple of times."
+	echo "Welcome to the OPC Router 5 docker sample with Umati OPC UA, MSSQL and Grafana! You might need to enter your password a couple of times."
 	echo ""
 fi
 
@@ -236,12 +236,13 @@ do
 		GRAF_REACHABLE=$?
 	fi
 done
-echo "Sample was installed successfully! Open http://$IP:3000/d/v972rfT7k/umati-machine-data in a browser!"
+echo "Sample was installed successfully! Open http://$IP:3000/d/v972rfT7k/umati-machine-data for grafana dashboard and http://$IP:8080/status/connections/Umati2SQL for OPC Router 5 Management Status in a browser!"
 echo "Once you finished observing the sample, you may stop it by running 'docker-compose down'"
 
 #check if xdg-open is installed to launch the default brwoser
 if [[ $(which "xdg-open" 2>/dev/null) == *"/xdg-open" ]]; then
 	xdg-open http://$IP:3000/d/v972rfT7k/umati-machine-data
+	xdg-open http://$IP:8080/status/connections/Umati2SQL
 fi
 
 exit 0
