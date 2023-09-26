@@ -27,7 +27,7 @@ function Get-UrlStatusCode([string] $Url)
 }
 
 Write-Host ""
-Write-Host "Welcome to the OPC Router 4 docker sample with Umati OPC UA, MSSQL and Grafana!"
+Write-Host "Welcome to the OPC Router 5 docker sample with Umati OPC UA, MSSQL and Grafana!"
 Write-Host ""
 
 Try {

@@ -9,7 +9,6 @@ services:
     image: opcrouter/runtime:5.0
     restart: unless-stopped
     ports:
-      - 27022:27017
       - 8080:8080
     volumes:
       - opc-router-db:/data/database

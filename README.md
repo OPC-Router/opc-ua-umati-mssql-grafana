@@ -56,15 +56,15 @@ bash <(wget -O - https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linu
 * [Contact](#contact)
 
 ## General Information
-> The OPC Router 4 is generally structured in two parts:
+> The OPC Router 5 is generally structured in two parts:
 > - The Runtime
-> - Management with the user interface
+> - Web Management with the user interface
 >  
 > The two components may run on two completely different systems.  
 > To set/edit the OPC Router 4, it is connected to the OPC Router Runtime via OPC Router Management, this abstraction allows the settings to be made remotely.
 ### **What is the sample doing?**
-- This docker sample is a fully functional OPC Router 4 project sample.
-- The goal is to use an Umati OPC UA server, with the help of the OPC Router 4, to store data in an MSSQL database and visualize it through Grafana.
+- This docker sample is a fully functional OPC Router 5 project sample.
+- The goal is to use an Umati OPC UA server, with the help of the OPC Router 5, to store data in an MSSQL database and visualize it through Grafana.
 
 ![GitHub-Mark-Light](/img/Umati-DataDockerSample.png#gh-light-mode-only)
 ![GitHub-Mark-Dark](/img/Umati-DataDockerSample_dark.png#gh-dark-mode-only)
@@ -82,11 +82,10 @@ bash <(wget -O - https://docker.opc-router.cloud/opc-ua-umati-mssql-grafana/linu
 For both operating systems, there are prerequisites that must already be met:
 - Connection to the Internet
 - Browser (If you are using **Firefox** then use a Version greater than **95.0.1**)
-- [OPC Router Managment](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now) (The OPC Router management is available for Windows systems)
 
 ### **Windows**
-A system with Docker and OPC Router Management installed is a prerequisite for the project. This same system is required to have internet access.
-If you don't have Docker installed yet, you can download it [here](https://www.docker.com/get-started). The OPC Router Management can be found on our [website](https://opc-router.com/?utm_source=GitHub&utm_medium=DockerSample&utm_campaign=OpcUaUmatiMssqlGrafana#test-now).
+A system with Docker installed is a prerequisite for the project. This same system is required to have internet access.
+If you don't have Docker installed yet, you can download it [here](https://www.docker.com/get-started). 
 - Docker
 
 
@@ -139,29 +138,7 @@ Now you only have to call the address [http://localhost:3000/](http://localhost:
 
 
 ## **OPC Router Management**
-If you want to view the communication between the Umati OPC UA server and the OPC Router Runtime which serves as middleware that forwards the data to the MSSQL database, start the OPC router management now.
-
-### **1. Add Runtime to the OPC Router Management**
-To be able to observe the data transfers you have to connect to the OPC Router Runtime first.  
- Click on the plus symbol at plug-ins in the OPC Router Management (see gif)...
-![First Startup](./img/Add_Docker.gif)
-...and select **Integrate existing service...**
-
-
-### **2. Configure Connection**
--   Name: (You can write here what you want)
--   Username & Password **(Let it Empty)**
--   Server IP: 127.0.0.1
-    > ❗ Make sure that you can only call the localhost / 127.0.0.1 address if you are on the device that is also used for the Docker installation, otherwise you have to call the address of the device on which the Docker installation is located.
--   Port: 27020
-
-Enter your docker hosts IP address and Port 27020, click **Test connection** and confirm with **OK**.
-
-![First Startup](./img/AddDocker.png)
-
-### **3. Open the status page**
-To observe the current and historical transfers select the state panel and click on the connection **Umati2SQL**
-<img src="./img/UmatiDockerSampleOPCRouter.gif"/>
+If you want to view the communication between the Umati OPC UA server and the OPC Router Runtime which serves as middleware that forwards the data to the MSSQL database, open your browser and go to the page [http://localhost:8080/](http://localhost:8080/status/connections/Umati2SQL) to see the active connection status in OPC Router Management.
 
 **Now you can see the current and previous transfer data, this allows a direct insight into the traffic and the interaction of the individual plug-ins.**  
 >💡 The overview allows you to follow the actions of the OPC Router (the green dots in the timeline), in case of possible errors you can see here exactly where the error comes from.
